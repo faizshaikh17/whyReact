@@ -8,8 +8,8 @@ function TodoItem({ todo }) {
     const [isTodoEditable, setIsTodoEditable] = useState(false);
     const [todoMsg, setTodoMsg] = useState(todo.todo)
 
-    const editTodo = (e) => {
-        updateTodo(todo.id, todoMsg)
+    const editTodo = () => {
+        updateTodo(todo.id, { ...todo, todo: todoMsg })
         setIsTodoEditable(false)
     }
 
@@ -46,6 +46,8 @@ function TodoItem({ todo }) {
 
                     if (isTodoEditable) {
                         editTodo();
+
+
                     } else setIsTodoEditable((prev) => !prev);
                 }}
                 disabled={todo.completed}
