@@ -28,17 +28,17 @@ function AddTodo() {
         setInput("")
     }
 
-    const [todoCompleted, setTodoCompleted] = useState(false);
+    const [todoCompleted, setTodoCompleted] = useState(null);
 
     return (
         <>
             <div className='flex justify-center min-h-full'>
-                <div className='w-2/5 my-32 text-center'>
+                <div className='w-3/5 my-32 text-center '>
                     <form onSubmit={addTodoHandler}
                         className="space-x-3 mt-12" >
                         <input
                             type="text"
-                            className={`bg-gray-800 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none  text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+                            className={`bg-gray-800  w-80 rounded border border-gray-700 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-900 text-base outline-none  text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
                             placeholder="Enter a Todo..."
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
@@ -62,12 +62,16 @@ function AddTodo() {
                                 className="mt-4 flex justify-between items-center bg-zinc-800 px-3 py-2 rounded"
                                 key={todo.id}
                             >
-                                <div className={` w-3/5 text-left py-0.5 px-2 ${todoCompleted ? "line-through" : ""} text-white `}>{todo.text}</div>
+                                <div className={` w-3/5 text-left text-neutral-400py-0.5 px-2 ${todoCompleted === todo.id ? "line-through" : ""} text-white `}>{todo.text}</div>
                                 <div className='flex w-52 justify-between'>
                                     <button
                                         onClick={() => {
-                                            setTodoCompleted((prev) => !prev)
-                                        }}
+                                            setTodoCompleted(todo.id)
+                                            if (todoCompleted === todo.id) {
+                                                setTodoCompleted(null)
+                                            }
+                                        }
+                                        }
                                         className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-md"
                                     >
                                         ✅
