@@ -117,6 +117,18 @@ export class DatabaseService {
             return false
         }
     }
+
+    getFilepreview(fileId) {
+        try {
+            this.bucket.getFilePreview(
+                conf.appwriteBucketId,
+                fileId
+            )
+        } catch (error) {
+            console.log(error);
+            return false
+        }
+    }
 };
 
 const databaseService = new DatabaseService();
