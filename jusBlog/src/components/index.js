@@ -7,7 +7,8 @@ import Select from './Select'
 import Input from './Input'
 import PostCard from './PostCard'
 import RTE from './RTE'
+import PostForm from './post-form/PostForm'
 
-export { Logo, Header, LogoutBtn, Footer, Container, Select, Input, PostCard, RTE }
+export { Logo, Header, LogoutBtn, Footer, Container, Select, Input, PostCard, RTE, PostForm }
 
 
