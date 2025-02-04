@@ -6,8 +6,7 @@ import { useForm } from 'react-hook-form';
 import authService from '../appwrite/auth';
 import { login as authLogin } from '../features/authSlice'
 
-function Login() {
-
+export function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [error, setError] = useState("")
@@ -63,4 +62,3 @@ function Login() {
   )
 }
 
-export default Login

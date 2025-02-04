@@ -33,10 +33,11 @@ export class AuthService {
 
     async getUser() {
         try {
-            return await this.account.get()
+            return await this.account.get();
         } catch (error) {
             console.log(error);
         }
+        return null;
     }
 
     async logout() {

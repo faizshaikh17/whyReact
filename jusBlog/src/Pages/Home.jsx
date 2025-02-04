@@ -5,8 +5,8 @@ import databaseService from '../appwrite/config'
 function Home() {
     const [posts, setPosts] = useState([])
     useEffect(() => {
-        databaseService.getPosts([]).then((posts) = {
-            if(posts) {
+        databaseService.getPosts([]).then((posts) => {
+            if (posts) {
                 setPosts(posts.documents)
             }
         })

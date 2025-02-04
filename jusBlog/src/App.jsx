@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import authService from './appwrite/auth'
 import { useDispatch } from 'react-redux'
 import { login, logout } from './features/authSlice'
+import { Outlet } from 'react-router-dom'
+
 function App() {
 
   const [loading, setLoading] = useState(true);
@@ -27,7 +29,9 @@ function App() {
       <div className='min-h-screen flex flex-wrap content-between bg-gray-400'>
         <div className='w-full block text-2xl'>
           <Header />
-          
+          <main>
+            TODO:  <Outlet />
+          </main>
           <Footer />
         </div>
       </div>
