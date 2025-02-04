@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 
 
 export const Header = () => {
-
   const authStatus = useSelector((state) => state.auth.status)
   const navigate = useNavigate()
 

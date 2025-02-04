@@ -11,6 +11,7 @@ import Signup from './Pages/Signup.jsx'
 import AllPost from './Pages/AllPost.jsx'
 import AddPost from './Pages/AddPost.jsx'
 import EditPost from './Pages/EditPost.jsx'
+import Post from './Pages/Post.jsx'
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: '/all-post',
+        path: '/all-posts',
         element: (
           <AuthLayout authentication={true}>
             <AllPost />
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             <EditPost />
           </AuthLayout>
         )
+      },
+      {
+        path: "/post/:slug",
+        element: <Post />,
       }
 
     ]

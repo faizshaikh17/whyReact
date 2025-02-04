@@ -5,6 +5,7 @@ import { Logo, Input, Button } from './index'
 import { useForm } from 'react-hook-form';
 import authService from '../appwrite/auth';
 import { login as authLogin } from '../features/authSlice'
+import { Link } from 'react-router-dom';
 
 export function Login() {
   const dispatch = useDispatch();
@@ -15,11 +16,11 @@ export function Login() {
   const login = async (data) => {
     setError("")
     try {
-      const userData = await authService.login(data);
-      if (userData) {
-        await authService.getUser();
-        dispatch(authLogin(userData));
-        navigate('/')
+      const session = await authService.login(data)
+      if (session) {
+        const userData = await authService.getUser()
+        if (userData) dispatch(authLogin(userData));
+        navigate("/")
       }
     } catch (error) {
       setError(error.message)
@@ -54,7 +55,7 @@ export function Login() {
             <Input label="Password: " placeholder="Enter your password" type="password" {...register("password", {
               required: true
             })} />
-            <Button type="submit" className="w-full">Sign In</Button>
+            <Button type="submit" className="w-full bg-slate-300">Sign In</Button>
           </div>
         </form>
       </div>

@@ -5,6 +5,7 @@ import { Logo, Input, Button } from './index'
 import { useForm } from 'react-hook-form'
 import authService from '../appwrite/auth'
 import { login } from '../features/authSlice'
+import { Link } from 'react-router-dom'
 
 
 function Signup() {
@@ -16,9 +17,12 @@ function Signup() {
 
     const signup = async (data) => {
         setError("")
+        console.log(data);
         try {
-            const userData = await authService.createAccount(data);
+            const userData = await authService.createAccount({ ...data });
+
             if (userData) {
+
                 const userData = await authService.getUser();
                 if (userData) dispatch(login(userData))
                 navigate('/');
