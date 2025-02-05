@@ -13,17 +13,22 @@ function Home() {
     }, [])
     if (posts.length === 0) {
         return (
-            <div className="w-full py-8 mt-4 text-center">
-                <Container>
-                    <div className="flex flex-wrap">
-                        <div className="p-2 w-full h-screen flex justify-center items-center">
-                            <h1 className="text-2xl font-bold text-purple-400 hover:text-purple-500">
-                                Login to read posts
-                            </h1>
-                        </div>
+            <main className="flex-grow flex flex-col items-center justify-center h-[70vh]">
+                <section className="text-center ">
+                    <div className='flex flex-col'>
+                        <h1 className={`text-3xl md:text-7xl font-bold text-white `}>
+                            Peek in the World of
+                        </h1>
+                        <h1 className={`text-3xl md:text-7xl font-bold text-white `}>
+                            Amazing <span className='text-purple-400'>Blogs.</span>
+                        </h1>
                     </div>
-                </Container>
-            </div>
+
+                    <p className={`mt-5 py-3 text-lg max-sm:text-xs text-gray-500 dark:text-gray-300 text-center tracking-normal leading-6`}>
+                        JusBlog it!
+                    </p>
+                </section>
+            </main>
         )
     }
     return (
