@@ -38,27 +38,29 @@ export const Header = () => {
   ]
 
   return (
-    <header className='py-4 shadow flex justify-center w-full'>
+    <header className='py-4 shadow flex justify-center'>
       <Container>
-        <nav className='flex text-white'>
-          <div className='flex items-center px-4'>
-            <Link to='/'>
-              <Logo />
-            </Link >
-          </div>
-          <ul className='flex ml-auto'>
-            {navItems.map((item) =>
-              item.active ? (
-                <li key={item.name}>
-                  <button className='inline-bock px-6 py-2 text-xl duration-200 hover:text-purple-300 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button>
-                </li>
-              ) : null
-            )}
-            {authStatus && (
-              <li><LogoutBtn /></li>
-            )}
-          </ul>
-        </nav>
+        <div className='w-full'>
+          <nav className='flex text-white'>
+            <div className='flex items-center px-4'>
+              <Link to='/'>
+                <Logo />
+              </Link >
+            </div>
+            <ul className='flex ml-auto'>
+              {navItems.map((item) =>
+                item.active ? (
+                  <li key={item.name}>
+                    <button className='inline-bock px-6 py-2 text-xl duration-200 hover:text-purple-300 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button>
+                  </li>
+                ) : null
+              )}
+              {authStatus && (
+                <li><LogoutBtn /></li>
+              )}
+            </ul>
+          </nav>
+        </div>
       </Container>
     </header>
   )

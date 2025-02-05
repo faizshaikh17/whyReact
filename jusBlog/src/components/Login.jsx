@@ -28,10 +28,10 @@ export function Login() {
   }
   return (
     <div className='flex items-center justify-center w-full'>
-      <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+      <div className={`mx-auto w-full text-black max-w-lg bg-white rounded-xl p-8 border border-black/10`}>
         <div className="mb-2 flex justify-center">
           <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+            <Logo className='text-purple-500' />
           </span>
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>
@@ -45,7 +45,7 @@ export function Login() {
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className='mt-8'>
-          <div className='space-y-5'>
+          <div className='space-y-4'>
             <Input label="Email: " placeholder="Enter your email" type="email" {...register("email", {
               required: true, validate: {
                 matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
@@ -55,7 +55,9 @@ export function Login() {
             <Input label="Password: " placeholder="Enter your password" type="password" {...register("password", {
               required: true
             })} />
-            <Button type="submit" className="w-full bg-slate-300">Sign In</Button>
+            <div className='flex justify-center pt-5 w-full'>
+              <Button className=" w-full text-white  py-2 text-xl bg-purple-500 hover:bg-purple-400 " type="submit">Sign In</Button>
+            </div>
           </div>
         </form>
       </div>

@@ -34,13 +34,9 @@ function Signup() {
 
     return (
         <div className="flex items-center justify-center">
-            <div className={`mx-auto w-full max-w-lg bg-white text-black rounded-xl p-10 border border-black/10`}>
-                <div className="mb-2 flex justify-center">
-                    <span className="inline-block w-full max-w-[100px]">
-                        <Logo width="100%" />
-                    </span>
-                </div>
-                <h2 className="text-center text-2xl font-bold leading-tight">Sign up to create Account</h2>
+            <div className={`w-full max-w-3xl bg-white text-black rounded-xl p-6 border border-black/10`}>
+
+                <h2 className="text-center text-2xl text-purple-500 font-bold leading-tight">Sign up to create Account</h2>
                 <p className="mt-2 text-center text-base text-black/60">Already have an account?
                     <Link to={"/login"} className="font-medium text-primary transition-all duration-200 hover:underline">
                         Sign In
@@ -48,18 +44,27 @@ function Signup() {
                 </p>
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
                 <form onSubmit={handleSubmit(signup)}>
-                    <div className='space-y-4'>
-                        <Input type="text" placeholder='Full Name' label="Name" {...register("name", { required: true })} />
-                        <Input type="email" placeholder='Enter your email' label="Email" {...register("email", {
-                            required: true, validate: {
-                                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                                    "Email address must be a valid address",
-                            }
-                        })} />
-                        <Input type="password" placeholder='Enter your password' label="Password" {...register("password", { required: true })} />
+                    <div className='flex py-3 space-x-6'>
+                        <div className='space-y-4 px-2'>
+                            <Input type="text" placeholder='John Doe' label="Full Name" {...register("name", { required: true })} />
+                            <Input type="email" placeholder='johndoe@gmail.com' label="Email" {...register("email", {
+                                required: true, validate: {
+                                    matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                        "Email address must be a valid address",
+                                }
+                            })} />
+                            <Input type="password" placeholder='Enter your password' label="Password" {...register("password", { required: true })} />
+                        </div>
+                        <div className='space-y-4 px-2'>
+                            <Input type="file" label="Profile Picture" {...register("profileImage", { required: true })} />
+                            <Input type="text" placeholder='jonhdoe7' label="Username" {...register("username", {
+                                required: true
+                            })} />
+                            <Input type="password" placeholder='Enter your password' label="Confirm Password" {...register("confirmPassword", { required: true })} />
+                        </div>
                     </div>
-                    <div className='flex justify-center pt-7'>
-                        <Button className="w-full py-2 text-xl bg-purple-400 " type="submit">Create Account</Button>
+                    <div className='flex justify-center pt-7 w-full'>
+                        <Button className=" w-full text-white  py-2 text-xl bg-purple-400 " type="submit">Create Account</Button>
                     </div>
                 </form>
 
