@@ -16,11 +16,11 @@ function Home() {
             <main className="flex-grow flex flex-col items-center justify-center h-[70vh]">
                 <section className="text-center ">
                     <div className='flex flex-col'>
-                        <h1 className={`text-3xl md:text-7xl font-bold text-white `}>
+                        <h1 className={`text-3xl md:text-6xl font-bold text-white `}>
                             Peek in the World of
                         </h1>
-                        <h1 className={`text-3xl md:text-7xl font-bold text-white `}>
-                            Amazing <span className='text-purple-400'>Blogs.</span>
+                        <h1 className={`text-3xl md:text-6xl font-bold text-white `}>
+                            Amazing <span className='text-[#c86bfa]'>Blogs.</span>
                         </h1>
                     </div>
 
@@ -30,22 +30,22 @@ function Home() {
                 </section>
             </main>
         )
-    }
-    return (
-        <div className='w-full py-8'>
-            <div className=''>
-                {
-                    posts.map((post) => (
-                        <div key={post.$id} className='p-4 w-2/3'>
-                            <PostCard {...post} />
-                        </div >
-                    ))
-                }
+    } else {
+        return (
+            <div className='w-full py-8'>
+                <div className=''>
+                    {
+                        posts.map((post) => (
+                            <div key={post.$id} className='p-4 w-2/3'>
+                                <PostCard {...post} />
+                            </div >
+                        ))
+                    }
+                </div>
+
+
             </div>
-
-
-        </div>
-    )
+        )
+    }
 }
-
 export default Home

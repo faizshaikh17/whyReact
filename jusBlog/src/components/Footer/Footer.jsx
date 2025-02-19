@@ -12,7 +12,7 @@ export function Footer() {
                     href="https://github.com/faizshaikh17/whyReact/tree/main/jusBlog"
                     target="_blank"
                     rel="noopener noreferrer"
-                >
+                >   
                     <div className="flex gap-3">
                         <span className="text-sm">Repo Link : </span>
                         <FaGithub className="h-5 w-5" />

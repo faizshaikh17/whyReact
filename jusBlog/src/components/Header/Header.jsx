@@ -38,10 +38,10 @@ export const Header = () => {
   ]
 
   return (
-    <header className='py-4 shadow flex justify-center'>
+    <header className=' py-6 flex items-center shadow justify-center'>
       <Container>
-        <div className='w-full'>
-          <nav className='flex text-white'>
+        <div className='w-full '>
+          <nav className='flex items-center text-white'>
             <div className='flex items-center px-4'>
               <Link to='/'>
                 <Logo />
@@ -51,7 +51,7 @@ export const Header = () => {
               {navItems.map((item) =>
                 item.active ? (
                   <li key={item.name}>
-                    <button className='inline-bock px-6 py-2 text-xl duration-200 hover:text-purple-300 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button>
+                    <button className='inline-bock px-3 py-2 text-base duration-200 hover:text-purple-300 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button>
                   </li>
                 ) : null
               )}

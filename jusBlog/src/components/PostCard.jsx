@@ -7,14 +7,13 @@ function PostCard({ $id, title, featuredImage, content }) {
 
     return (
         <Link to={`/post/${$id}`}>
-            <div className='w-full bg-white text-black rounded-xl p-4 h-[30vh]'>
-                <div className='w-full flex items-center px-2 mb-4'>
-                    <img className='rounded-xl w-full h-44 bg-purple-300' src={databaseService.getFilepreview(featuredImage)} alt={""} />
-                    <div className='px-4'>
-                        <h2 className='text-xl font-bold '>{title}</h2>
-                        <p>{content}</p>
+            {/* <span className='w-full text-[#FCFCFF]'>---------------------</span> */}
+            <div className='w-full text-[#FCFCFF]'>
+                <div className='w-full'>
+                    <div className='flex-col space-y-2 px-4'>
+                        <h2 className='text-2xl font-bold'>{title}</h2>
+                        <p className='text-lg'>{content}</p>
                     </div>
-
                 </div>
             </div>
         </Link >
