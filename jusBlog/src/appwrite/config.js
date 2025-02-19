@@ -119,15 +119,11 @@ export class DatabaseService {
     }
 
     getFilepreview(fileId) {
-        try {
-            this.bucket.getFilePreview(
-                conf.appwriteBucketId,
-                fileId
-            )
-        } catch (error) {
-            console.log(error);
-            return false
-        }
+
+        this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId
+        )
     }
 };
 

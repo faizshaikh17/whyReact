@@ -63,7 +63,7 @@ function PostForm({ post }) {
 
 
     return (
-        <form className="flex border-2 rounded-lg border-white-400" onSubmit={handleSubmit(submit)} >
+        <form className="flex border-[0.01rem] border-white-400" onSubmit={handleSubmit(submit)} >
             <div className="w-full text-left m-2 px-6 py-5">
                 <Input className="mb-4 w-full rounded-lg text-xl p-1 pl-2 text-black" placeholder='Title' label="Title" {...register("title", { required: true })} />
                 <Input className="mb-4 w-full rounded-lg text-xl p-1 text-black" label="Slug" {...register("slug", { required: true })}
@@ -81,7 +81,7 @@ function PostForm({ post }) {
                     {...register("status", { required: true })}
                 />
 
-                <Button type="submit" className={` bg-blue-500 bgColor={${post} ? " bg-green-500" : ${undefined}} `} >{post ? "Update" : "Submit"}</Button>
+                <Button type="submit" onclick={() => { console.log(17) }} className={` active:bg-blue-200 bg-blue-500 bgColor={${post} ? " bg-green-500" : ${undefined}}`} >{post ? "Update" : "Submit"}</Button>
             </div>
         </form >
     )
