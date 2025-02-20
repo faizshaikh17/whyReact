@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Container, PostCard } from '../components'
 import databaseService from '../appwrite/config'
+import { useSelector } from 'react-redux'
 
 function Home() {
     const [posts, setPosts] = useState([])
+    const authStatus = useSelector((state) => state.auth.status)
+
     useEffect(() => {
         databaseService.getPosts([]).then((posts) => {
             if (posts) {
@@ -11,7 +14,7 @@ function Home() {
             }
         })
     }, [])
-    if (posts.length === 0) {
+    if (!authStatus) {
         return (
             <main className="flex-grow flex flex-col items-center justify-center h-[70vh]">
                 <section className="text-center ">

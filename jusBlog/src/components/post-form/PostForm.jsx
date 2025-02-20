@@ -37,7 +37,7 @@ function PostForm({ post }) {
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
                 console.log(dbPost)
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
-                databaseService.getFilepreview(`67b769ee002e9084ce76`)
+                databaseService.getFilePreview(dbPost.featuredImage)
             }
         }
     }

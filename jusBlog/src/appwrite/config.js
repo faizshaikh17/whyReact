@@ -99,11 +99,14 @@ export class DatabaseService {
                 conf.appwriteBucketId,
                 ID.unique(),
                 file
-            )
+            );
         } catch (error) {
-            console.log(error);
+            console.log("Appwrite service :: uploadFile :: error", error);
+            return false; // Consistent error handling
         }
     }
+
+
 
     async deleteFile(fileId) {
         try {
@@ -118,13 +121,16 @@ export class DatabaseService {
         }
     }
 
-    getFilepreview(fileId) {
-
-        this.bucket.getFilePreview(
-            conf.appwriteBucketId,
-            fileId
-        )
-        return `https://cloud.appwrite.io/v1/storage/buckets/679e4e87001176b1e51a/files/${fileId}/view?project=679e43db002d02ae85c5&mode=admin`
+    getFilePreview(fileId) {
+        try {
+            return this.bucket.getFilePreview(
+                conf.appwriteBucketId,  
+                fileId
+            );
+        } catch (error) {
+            console.log("Appwrite service :: getFilePreview :: error", error);
+            return false; // Consistent error handling
+        }
     }
 };
 
