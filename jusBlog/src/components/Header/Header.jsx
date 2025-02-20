@@ -38,11 +38,11 @@ export const Header = () => {
   ]
 
   return (
-    <header className=' py-6 flex items-center shadow justify-center'>
+    <header className=' py-8 flex items-center shadow justify-center'>
       <Container>
         <div className='w-full '>
           <nav className='flex items-center text-white'>
-            <div className='flex items-center px-4'>
+            <div className='flex items-center'>
               <Link to='/'>
                 <Logo />
               </Link >

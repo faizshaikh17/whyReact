@@ -5,7 +5,7 @@ import { FaGithub } from "react-icons/fa";
 
 export function Footer() {
     return (
-        <footer className="bg-background dark:bg-dark-bg text-primary dark:text-dark-primary px-6 py-4  bottom-0 left-0 w-full">
+        <footer className="bg-background text-[#FAFAFA] dark:bg-dark-bg text-primary dark:text-dark-primary px-6 py-4  bottom-0 left-0 w-full">
             <div className="flex justify-center items-center space-x-4 flex-col gap-2">
                 <p className="text-center text-sm">© Designed & Developed by Faiz Shaikh</p>
                 <a

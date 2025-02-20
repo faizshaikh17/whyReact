@@ -32,11 +32,11 @@ function Home() {
         )
     } else {
         return (
-            <div className='w-full py-8'>
-                <div className=''>
+            <div className='w-full px-2 py-8'>
+                <div className='flex flex-col gap-6'>
                     {
                         posts.map((post) => (
-                            <div key={post.$id} className='p-2 w-2/3'>
+                            <div key={post.$id} className=' w-2/3'>
                                 <PostCard {...post} />
                             </div >
                         ))
