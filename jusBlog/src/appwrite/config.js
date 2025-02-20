@@ -124,6 +124,7 @@ export class DatabaseService {
             conf.appwriteBucketId,
             fileId
         )
+        return `https://cloud.appwrite.io/v1/storage/buckets/679e4e87001176b1e51a/files/${fileId}/view?project=679e43db002d02ae85c5&mode=admin`
     }
 };
 

@@ -35,13 +35,20 @@ export default function Post() {
 
 
     return post ? (
-        <div className="py-8">
-            <div className="w-full flex justify-center mb-4 relative p-2">
-                <img
-                    src={databaseService.getFilepreview(post.featuredImage)}
-                    alt={post.title}
-                    className="w-2/3 text-[#FCFCFF] border"
-                />
+        <div className=" w-full py-8">
+            <div className="w-full flex justify-center mb-4 relative p-2"
+
+            >
+                <div className="w-2/3 h-96"
+                    style={{
+                        backgroundImage: `url(${post.featuredImage})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        boxSizing: "border-box",
+                    }}
+                >
+                </div>
 
                 {isAuthor && (
                     <div className="absolute right-6 top-6">
@@ -59,7 +66,7 @@ export default function Post() {
             <div className="w-full pt-8 px-10 mb-4">
                 <h1 className="text-xl text-[#FCFCFF] font-bold">{post.title}</h1>
             </div>
-            <div className="browser-css pt-4 px-10 text-base text-[#FCFCFF]">
+            <div className="w-full flex pt-4 px-10 text-base text-[#FCFCFF]">
                 {parse(post.content)}
             </div>
         </div>

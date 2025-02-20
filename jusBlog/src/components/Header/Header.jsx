@@ -13,7 +13,7 @@ export const Header = () => {
     {
       name: 'Home',
       slug: "/",
-      active: true
+      active: authStatus
     },
     {
       name: "Login",
@@ -51,7 +51,7 @@ export const Header = () => {
               {navItems.map((item) =>
                 item.active ? (
                   <li key={item.name}>
-                    <button className='inline-bock px-3 py-2 text-base duration-200 hover:text-purple-300 rounded-full' onClick={() => navigate(item.slug)}>{item.name}</button>
+                    <button className={`inline-bock px-3 py-2 text-base duration-200 ${item.active ? "text-[#d283ff]" : ""} rounded-full`} onClick={() => navigate(item.slug)}>{item.name}</button>
                   </li>
                 ) : null
               )}

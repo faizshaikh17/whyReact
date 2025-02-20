@@ -30,14 +30,14 @@ function PostForm({ post }) {
             if (dbPost) navigate(`/post/${dbPost.$id}`)
         }
         else {
-            const file = await databaseService.uploadFile(data.image[0])
+            const file = await databaseService.uploadFile(data.image[0]);
             if (file) {
                 const fileId = file.$id;
-                data.featuredImage = fileId
+                data.featuredImage = fileId;
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
-                console.log()
+                console.log(dbPost)
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
-                databaseService.getFilepreview(dbPost.featuredImage)
+                databaseService.getFilepreview(`67b769ee002e9084ce76`)
             }
         }
     }
@@ -63,7 +63,7 @@ function PostForm({ post }) {
 
 
     return (
-        <form className="flex border-[0.01rem] border-white-400 gap-5 text-[#FCFCFF]"  onSubmit={handleSubmit(submit)} >
+        <form className="flex border-[0.01rem] border-white-400 gap-5 text-[#FCFCFF]" onSubmit={handleSubmit(submit)} >
             <div className="w-full text-left m-2 px-6 py-5">
                 <Input className="mb-4 w-full rounded-lg text-xl p-1 pl-2 text-black" placeholder='Title' label="Title" {...register("title", { required: true })} />
                 <Input className="mb-4 w-full rounded-lg text-xl p-1 text-black" label="Slug" {...register("slug", { required: true })}
