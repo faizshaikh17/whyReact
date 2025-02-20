@@ -34,6 +34,7 @@ function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
+                console.log(fileId)
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
                 console.log(dbPost)
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
@@ -73,7 +74,7 @@ function PostForm({ post }) {
                 <RTE label="Content" name="content" control={control} defaultValue={getValues("content")} />
                 {post && (
                     <div className="w-full mb-4 p-1">
-                        <img className="rounded-lg" src={databaseService.getFilepreview(post.featuredImage)} alt={post.title} />
+                        <img className="rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
                     </div>
                 )}
                 <Select className="m-4  p-1 ml-3 rounded-lg text-lg text-black" options={["Active", "Inactive"]}

@@ -40,14 +40,19 @@ export default function Post() {
 
             >
                 <div className="w-2/3 h-96"
-                    style={{
-                        backgroundImage: `url(${post.featuredImage})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        boxSizing: "border-box",
-                    }}
-                >
+                // style={{
+                //     backgroundImage: `url(${post.featuredImage})`,
+                //     backgroundRepeat: "no-repeat",
+                //     backgroundSize: "cover",
+                //     backgroundPosition: "center",
+                //     boxSizing: "border-box",
+                // }}
+                >{post && post.featuredImage && (
+                    <div className="w-full text-[#FCFCFF] mb-4 p-1">
+                        <img className="rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
+                    </div>
+                )}
+
                 </div>
 
                 {isAuthor && (
