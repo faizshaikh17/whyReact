@@ -39,7 +39,7 @@ export default function Post() {
             <div className="w-full flex justify-center mb-4 relative p-2"
 
             >
-                <div className="w-2/3 h-96"
+                <div className="w-2/3 text-center h-96"
                 // style={{
                 //     backgroundImage: `url(${post.featuredImage})`,
                 //     backgroundRepeat: "no-repeat",
@@ -48,7 +48,7 @@ export default function Post() {
                 //     boxSizing: "border-box",
                 // }}
                 >{post && post.featuredImage && (
-                    <div className="w-full text-[#FCFCFF] mb-4 p-1">
+                    <div className="w-[90%] text-[#FCFCFF] mb-4 p-1">
                         <img className="rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
                     </div>
                 )}
@@ -68,7 +68,7 @@ export default function Post() {
                     </div>
                 )}
             </div>
-            <div className="w-full pt-8 px-10 mb-4">
+            <div className="w-full pt-10 px-10 mb-4">
                 <h1 className="text-xl text-[#FCFCFF] font-bold">{post.title}</h1>
             </div>
             <div className="w-full flex pt-4 px-10 text-base text-[#FCFCFF]">

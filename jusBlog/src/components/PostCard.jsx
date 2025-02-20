@@ -1,6 +1,8 @@
 import React from 'react'
 import databaseService from '../appwrite/config'
 import { Link } from 'react-router-dom'
+import parse from "html-react-parser";
+
 
 
 function PostCard({ $id, title, featuredImage, content }) {
@@ -12,7 +14,7 @@ function PostCard({ $id, title, featuredImage, content }) {
                 <div className='w-full  '>
                     <div className='flex-col space-y-1'>
                         <h2 className='text-2xl text-[#FCFCFF] font-bold'>{title}</h2>
-                        <p className='text-lg text-[#bdbdc3]'>{content}</p>
+                        <p className='text-lg text-[#bdbdc3]'>{parse(content)}</p>
                     </div>
                 </div>
             </div>

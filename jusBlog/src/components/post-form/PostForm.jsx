@@ -34,9 +34,7 @@ function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                console.log(fileId)
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
-                console.log(dbPost)
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
                 databaseService.getFilePreview(dbPost.featuredImage)
             }
