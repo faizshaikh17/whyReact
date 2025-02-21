@@ -16,7 +16,7 @@ function Home() {
     }, [])
     if (!authStatus) {
         return (
-            <main className="flex-grow flex flex-col items-center justify-center h-[70vh]">
+            <main className="flex-grow flex flex-col items-center justify-center h-[75vh]">
                 <section className="text-center ">
                     <div className='flex flex-col'>
                         <h1 className={`text-3xl md:text-6xl font-bold text-white `}>
@@ -35,7 +35,7 @@ function Home() {
         )
     } else {
         return (
-            <div className='w-full px-2 py-8'>
+            <div className='w-full px-2 py-8 h-[75vh]'>
                 <div className='flex flex-col gap-6'>
                     {
                         posts.map((post) => (

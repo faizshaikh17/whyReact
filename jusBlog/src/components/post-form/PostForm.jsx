@@ -18,7 +18,7 @@ function PostForm({ post }) {
     })
 
     const navigate = useNavigate();
-    const userData = useSelector((state) => state.auth.userData)
+    const { userData } = useSelector((state) => state.auth)
 
     const submit = async (data) => {
         if (post) {
@@ -34,6 +34,7 @@ function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
+                console.log(userData)
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
                 databaseService.getFilePreview(dbPost.featuredImage)
@@ -43,7 +44,7 @@ function PostForm({ post }) {
 
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string")
-            return value.trim().toLowerCase().replace(/[^a-zA-Z\d]+/g, "-")
+            return value.trim().toLowerCase().replace(/[^a-zA-Z\d]+/g, "-").slice(0, 30)
 
         return ""
 

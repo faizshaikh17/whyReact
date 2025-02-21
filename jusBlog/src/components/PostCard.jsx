@@ -14,7 +14,7 @@ function PostCard({ $id, title, featuredImage, content }) {
                 <div className='w-full  '>
                     <div className='flex-col space-y-1'>
                         <h2 className='text-2xl text-[#FCFCFF] font-bold'>{title}</h2>
-                        <p className='text-lg text-[#bdbdc3]'>{parse(content)}</p>
+                        <p className='text-lg text-[#bdbdc3]'>{parse(content.slice(0,100)+"....")}</p>
                     </div>
                 </div>
             </div>

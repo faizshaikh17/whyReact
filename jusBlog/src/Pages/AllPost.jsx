@@ -13,7 +13,7 @@ function AllPost() {
     }, [])
 
     return (
-        <div className='w-full py-8'>
+        <div className='w-full h-[75vh] py-8'>
             <div className=''>
                 {
                     posts.map((post) => (
