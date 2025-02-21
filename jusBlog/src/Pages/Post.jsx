@@ -11,8 +11,6 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
-
-
     const isAuthor = post && userData ? post.userid === userData.$id : false;
 
     useEffect(() => {
@@ -56,13 +54,13 @@ export default function Post() {
                 </div>
 
                 {isAuthor && (
-                    <div className="absolute right-6 top-6">
+                    <div className="absolute right-0 bottom-0">
                         <Link to={`/edit-post/${post.$id}`}>
-                            <Button className="mr-3 bg-green-500">
+                            <Button className=" bg-slate-50">
                                 Edit
                             </Button>
                         </Link>
-                        <Button className="mr-3 bg-red-500" onClick={deletePost}>
+                        <Button className=" bg-slate-50" onClick={deletePost}>
                             Delete
                         </Button>
                     </div>

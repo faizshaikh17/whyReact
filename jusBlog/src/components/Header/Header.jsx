@@ -25,11 +25,11 @@ export const Header = () => {
       slug: "/signup",
       active: !authStatus,
     },
-    {
-      name: "All Posts",
-      slug: "/all-posts",
-      active: authStatus,
-    },
+    // {
+    //   name: "All Posts",
+    //   slug: "/all-posts",
+    //   active: authStatus,
+    // },
     {
       name: "Add Post",
       slug: "/add-post",
@@ -51,7 +51,7 @@ export const Header = () => {
               {navItems.map((item) =>
                 item.active ? (
                   <li key={item.name}>
-                    <button className={`inline-bock px-3 py-2 text-base duration-200 ${item.active ? "text-[#d283ff]" : ""} rounded-full`} onClick={() => navigate(item.slug)}>{item.name}</button>
+                    <button className={`inline-bock px-3 py-2 text-base duration-200 ${item.active ? "hover:text-[#d283ff]" : ""}`} onClick={() => navigate(item.slug)}>{item.name}</button>
                   </li>
                 ) : null
               )}

@@ -29,7 +29,7 @@ function App() {
       <div className='flex flex-wrap z-[0] content-between w-full text-black'>
         <div className='w-full block text-2xl'>
           <Header />
-          <main className='w-full  min-h-[77.5vh]'>
+          <main className='w-full flex items-center justify-center  min-h-[77.5vh]'>
             <Outlet />
           </main>
           <Footer />
