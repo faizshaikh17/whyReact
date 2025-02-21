@@ -72,7 +72,7 @@ export default function Post() {
                 <h1 className="text-xl text-[#FCFCFF] font-bold">{post.title}</h1>
             </div>
             <div className="w-full pt-4 px-10 text-base text-[#FCFCFF]">
-                {parse(post.content)}
+                <p>{parse(post.content)}</p>
             </div>
         </div>
     ) : null;

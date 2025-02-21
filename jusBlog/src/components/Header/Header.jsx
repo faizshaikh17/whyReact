@@ -38,7 +38,7 @@ export const Header = () => {
   ]
 
   return (
-    <header className=' py-8 flex items-center shadow justify-center'>
+    <header className=' py-8 flex z-[10] bg-[#09090B]  top-0 items-center shadow justify-center'>
       <Container>
         <div className='w-full '>
           <nav className='flex items-center text-white'>
