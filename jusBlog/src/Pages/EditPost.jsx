@@ -5,7 +5,7 @@ import { Container, PostForm } from '../components/index';
 
 function EditPost() {
     const [post, setPost] = useState([]);
-    const {slug} = useParams();
+    const { slug } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -13,6 +13,7 @@ function EditPost() {
         databaseService.getPost(slug).then((post) => {
             if (post) {
                 setPost(post)
+                console.log(post)
             } else
                 navigate('/')
         })

@@ -33,10 +33,8 @@ export default function Post() {
 
 
     return post ? (
-        <div className=" w-full py-8">
-            <div className="w-full flex justify-center mb-4 relative p-2"
-
-            >
+        <div className=" w-full flex-col py-8">
+            <div className="w-full flex justify-center mb-4 relative p-2">
                 <div className="w-2/3 text-center h-96"
                 // style={{
                 //     backgroundImage: `url(${post.featuredImage})`,
@@ -45,16 +43,19 @@ export default function Post() {
                 //     backgroundPosition: "center",
                 //     boxSizing: "border-box",
                 // }}
-                >{post && post.featuredImage && (
-                    <div className="w-[90%] text-[#FCFCFF] mb-4 p-1">
-                        <img className="rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
-                    </div>
-                )}
-
+                >
+                    {post && post.featuredImage && (
+                        <div className="w-[90%] text-[#FCFCFF] mb-4 p-1">
+                            <img className=" rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
+                        </div>
+                    )}
                 </div>
+            </div>
 
-                {isAuthor && (
-                    <div className="absolute right-0 bottom-0">
+            {isAuthor && (
+                <div className="flex justify-between px-10 relative items-center">
+                    <div className="text-[#FCFCFF]">By:Faiz</div>
+                    <div className="">
                         <Link to={`/edit-post/${post.$id}`}>
                             <Button className=" bg-slate-50">
                                 Edit
@@ -64,8 +65,8 @@ export default function Post() {
                             Delete
                         </Button>
                     </div>
-                )}
-            </div>
+                </div>
+            )}
             <div className="w-full pt-10 px-10 mb-4">
                 <h1 className="text-xl text-[#FCFCFF] font-bold">{post.title}</h1>
             </div>

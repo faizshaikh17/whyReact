@@ -1,28 +1,34 @@
-import React from 'react'
-import databaseService from '../appwrite/config'
-import { Link } from 'react-router-dom'
-import parse from "html-react-parser";
-
-
+import React from 'react';
+import databaseService from '../appwrite/config';
+import { Link } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 function PostCard({ $id, title, featuredImage, content }) {
-
     return (
         <Link to={`/post/${$id}`}>
-            {/* <span className='w-full text-[#FCFCFF]'>---------------------</span> */}
-            <div className='w-full flex h-[22vh] p-4 rounded-md relative bg-[#171717] hover:border-[0.01rem] hover:border-[#828287] '>
-                <div className='w-full flex   '>
+            <div className='w-full flex h-[22vh] gap-4 p-4 rounded-lg bg-[#171717] hover:bg-[#1f1f1f] transition-all duration-300 ease-in-out shadow-lg hover:shadow-xl border border-[#2a2a2a] hover:border-[#828287]'>
+                <div className='w-3/4 flex flex-col justify-between'>
                     <div className='space-y-2'>
-                        <h2 className='text-xl text-[#FCFCFF] font-bold'>{title}</h2>
-                        <p className='text-base text-[#bdbdc3]'>{parse(content.slice(0, 100) + "....")}</p>
+                        <h2 className='text-xl text-[#FCFCFF] font-bold hover:text-[#c9c9c9] transition-colors duration-200'>
+                            {title}
+                        </h2>
+                        <div className='bg-[#2a2a2a] p-2 rounded-md'>
+                            <p className='text-sm text-[#bdbdc3]'>
+                                {parse(content.slice(0, 50) + " ...Read More")}
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <div className='flex p-1 hover:p-2 w-1/3'>
-                    <img className="rounded-md" src={databaseService.getFilePreview(featuredImage)} alt={title} />
+                <div className='w-1/4 flex items-center justify-center'>
+                    <img
+                        className='rounded-md object-cover w-full h-full hover:scale-105 transition-transform duration-300 ease-in-out'
+                        src={databaseService.getFilePreview(featuredImage)}
+                        alt={title}
+                    />
                 </div>
             </div>
-        </Link >
-    )
+        </Link>
+    );
 }
 
-export default PostCard
+export default PostCard;

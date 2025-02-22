@@ -5,9 +5,7 @@ import databaseService from '../../appwrite/config'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Input, Select, Button, RTE } from '../index'
 
-
 function PostForm({ post }) {
-
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
             title: post?.title || "",
@@ -22,25 +20,26 @@ function PostForm({ post }) {
 
     const submit = async (data) => {
         if (post) {
+            if (post) {
+                await databaseService.deleteFile(post.featuredImage)
+            }
             const file = data.image[0] ? await databaseService.uploadFile(data.image[0]) : null
             const fileId = file.$id
 
-            if (file) {
-                await databaseService.deleteFile(fileId)
-            }
             console.log(post)
-            const dbPost = await databaseService.updatePost(post.$id, { ...data, featuredImage: fileId ? fileId : undefined });
-            console.log(dbPost)
-            if (dbPost) navigate(`/post/${dbPost.$id}`)
-
-
+            const dbPost = await databaseService.updatePost(post.$id, { ...data, featuredImage: file ? file.$id : undefined, });
+            console.log(fileId)
+            console.log(dbPost.featuredImage)
+            if (dbPost) {
+                navigate(`/post/${dbPost.$id}`)
+                databaseService.getFilePreview(dbPost.featuredImage)
+            }
         }
         else {
             const file = await databaseService.uploadFile(data.image[0]);
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                console.log(userData)
                 const dbPost = await databaseService.createPost({ ...data, userid: userData.$id })
                 if (dbPost) navigate(`/post/${dbPost.$id}`)
                 databaseService.getFilePreview(dbPost.featuredImage)
@@ -51,9 +50,7 @@ function PostForm({ post }) {
     const slugTransform = useCallback((value) => {
         if (value && typeof value === "string")
             return value.trim().toLowerCase().replace(/[^a-zA-Z\d]+/g, "-").slice(0, 30)
-
         return ""
-
     }, [])
 
     React.useEffect(() => {
@@ -62,36 +59,71 @@ function PostForm({ post }) {
                 setValue("slug", slugTransform(value.title), { shouldValidate: true })
             }
         })
-
         return () => subscription.unsubscribe()
-    }
-        , [watch, setValue, slugTransform])
-
+    }, [watch, setValue, slugTransform])
 
     return (
-        <form className="flex border-[0.01rem] border-white-400 gap-5 text-[#FCFCFF]" onSubmit={handleSubmit(submit)} >
-            <div className="w-full text-left m-2 px-6 py-5">
-                <Input className="mb-4 w-full rounded-lg text-xl p-1 pl-2 text-black" placeholder='Title' label="Title" {...register("title", { required: true })} />
-                <Input className="mb-4 w-full rounded-lg text-xl p-1 text-black" label="Slug" {...register("slug", { required: true })}
-                    onInput={() => { setValue("slug", slugTransform(value.title), { shouldValidate: true }) }} />
-                <Input className="mb-4 w-full rounded-lg text-xl p-1 pl-2" type="file" label="Featured Image" accept="image/png, image/jpg, image/jpeg, image/gif"
-                    {...register("image", { required: !post })} />
-                {post && (
-                    <div className="w-2/3 text-center h-96 mb-4 p-1">
-                        <img className="rounded-lg" src={databaseService.getFilePreview(post.featuredImage)} alt={post.title} />
+        <form 
+            className="w-full mx-auto my-8"
+            onSubmit={handleSubmit(submit)}
+        >
+            <div className="w-full bg-[#111115] text-white border border-gray-700 rounded-xl p-6 shadow-lg shadow-gray-800/50">
+                <div className="space-y-6">
+                    <Input 
+                        className="mb-4 w-full bg-white text-black border-gray-700 placeholder-gray-400 rounded-lg text-xl p-2 pl-3 focus:ring-2 focus:ring-gray-600 focus:border-transparent transition-all duration-200"
+                        placeholder='Title'
+                        label="Title"
+                        labelClassName="text-gray-200 font-medium mb-2 block"
+                        {...register("title", { required: true })}
+                    />
+                    
+                    <Input 
+                        className="mb-4 w-full bg-white text-black border-gray-700 placeholder-gray-400 rounded-lg text-xl p-2 pl-3 focus:ring-2 focus:ring-gray-600 focus:border-transparent transition-all duration-200"
+                        label="Slug"
+                        labelClassName="text-gray-200 font-medium mb-2 block"
+                        {...register("slug", { required: true })}
+                        onInput={() => { setValue("slug", slugTransform(getValues("title")), { shouldValidate: true }) }}
+                    />
+                    
+                    <Input 
+                        className="mb-4 w-full bg-white text-black border-gray-700  rounded-lg text-xl p-2 pl-3 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-lg file:bg-gray-700 file:text-white hover:file:bg-gray-600 transition-all duration-200"
+                        type="file"
+                        label="Featured Image"
+                        labelClassName="text-gray-200 font-medium mb-2 block"
+                        accept="image/png, image/jpg, image/jpeg, image/gif"
+                        {...register("image", { required: !post })}
+                    />
+
+                    <RTE 
+                        label="Content"
+                        name="content"
+                        control={control}
+                        defaultValue={getValues("content")}
+                        containerClassName="bg-gray-800 rounded-lg border border-gray-700"
+                        labelClassName="text-gray-200 font-medium mb-2 block"
+                    />
+                    
+                    <div className="flex justify-between items-center gap-4">
+                        <Select 
+                            className="m-4 w-1/2 bg-white text-black border-gray-700 rounded-lg text-lg p-2 focus:ring-2 focus:ring-gray-600 focus:border-transparent transition-all duration-200"
+                            options={["Active", "Inactive"]}
+                            label="Status"
+                            labelClassName="text-gray-200 font-medium mb-2 block"
+                            {...register("status", { required: true })}
+                        />
+
+                        <Button 
+                            type="submit"
+                            onClick={() => { console.log(17) }}
+                            className={`m-4 w-1/5 h-12 rounded-lg bg-white text-black text-base font-medium transition-all duration-200 `}
+                        >
+                            {post ? "Update" : "Submit"}
+                        </Button>
                     </div>
-                )}
-                <RTE label="Content" name="content" control={control} defaultValue={getValues("content")} />
-                <Select className="m-4  p-1 ml-3 rounded-lg text-lg text-black" options={["Active", "Inactive"]}
-                    label="status"
-                    {...register("status", { required: true })}
-                />
-
-                <Button type="submit" onclick={() => { console.log(17) }} className={` right-[100] text-base active:bg-blue-200 bg-blue-500 bgColor={${post} ? " bg-green-500" : ${undefined}}`} >{post ? "Update" : "Submit"}</Button>
+                </div>
             </div>
-        </form >
+        </form>
     )
-
 }
 
 export default PostForm
