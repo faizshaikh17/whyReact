@@ -15,12 +15,12 @@ export const Header = () => {
       active: authStatus,
     },
     {
-      name: 'Login',
+      name: 'Log In',
       slug: '/login',
       active: !authStatus,
     },
     {
-      name: 'Signup',
+      name: 'Sign Up',
       slug: '/signup',
       active: !authStatus,
     },
