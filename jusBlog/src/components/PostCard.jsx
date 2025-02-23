@@ -9,7 +9,7 @@ function PostCard({ $id, title, featuredImage, content }) {
             <div className='w-full flex h-60 gap-4 p-4 rounded-xl bg-[#171717] hover:bg-[#1f1f1f] transition-all duration-300 ease-in-out shadow-md hover:shadow-2xl border border-[#2a2a2a] hover:border-[#828287] overflow-hidden'>
                 <div className='w-3/4 flex flex-col justify-between'>
                     <div className='space-y-3'>
-                        <h2 className='text-2xl text-[#FCFCFF] font-semibold hover:text-[#c9c9c9] transition-colors duration-200 line-clamp-2'>
+                        <h2 className='text-2xl hover:underline text-[#FCFCFF] font-semibold hover:text-[#c9c9c9] transition-colors duration-200 line-clamp-2'>
                             {title}
                         </h2>
                         <div className='bg-[#2a2a2a] rounded-lg overflow-hidden'>

@@ -38,22 +38,7 @@ function App() {
       <Header />
       <main className='relative flex flex-grow items-center justify-center overflow-hidden'>  {/* Added relative and overflow-hidden */}
         {/* Subtle Noise Overlay */}
-        <div className="absolute z-[1] inset-0 bg-[url('/noise.png')] bg-repeat opacity-10 mix-blend-overlay"></div>
-
-        {/* Falling Beam Effects */}
-        <div className="absolute z-[2] inset-0 pointer-events-none">
-          {Array.from({ length: 5 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute top-0 left-1/2 transform -translate-x-1/2 w-0.5 h-20 bg-gradient-to-b from-pink-400 to-transparent opacity-0 animate-falling-beam"
-              style={{
-                animationDelay: `${Math.random() * 5}s`,
-                left: `${Math.random() * 100}%`,
-              }}
-            />
-          ))}
-        </div>
-
+        {/* <div className="absolute z-[1] inset-0 bg-[url('/noise.png')] bg-repeat opacity-10 mix-blend-overlay"></div> */}
         <div className="relative z-[3] w-full">  {/* Add zIndex to this div */}
            <Outlet />
         </div>
