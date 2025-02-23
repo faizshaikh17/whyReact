@@ -24,7 +24,7 @@ function Home() {
                             Ideas & Stories
                         </h1>
                         <h1 className="text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400 animate-text-glow">
-                           Whatever, <span className='text-[#c86bfa]'>Blog</span>
+                             Whatever,<span className='text-[#c86bfa]'>Blog</span>
                         </h1>
     
                         {/* Subtitle with Animation */}

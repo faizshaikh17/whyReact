@@ -28,35 +28,35 @@ export function Login() {
   }
   return (
     <div className='flex items-center justify-center w-full'>
-      <div className={`mx-auto w-auto text-black max-w-lg bg-white rounded-xl p-8 border border-black/10`}>
-        <div className="mb-2 flex justify-center">
+      <div className={`mx-auto w-auto text-black max-w-lg bg-white p-7 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300`}> {/* Increased shadow and rounded corners */}
+        <div className="mb-6 flex justify-center"> {/* Increased margin */}
           <span className="inline-block w-full max-w-[100px]">
-            <Logo className='text-purple-500' />
+            <Logo className='' />
           </span>
         </div>
-        <h2 className="text-center text-2xl font-bold leading-tight">Sign in to your account</h2>
-        <p className="mt-2 text-center text-base text-black/60">
-          Don&apos;t have any account?&nbsp;
+        <h2 className="text-center text-3xl font-semibold leading-tight text-gray-900">Sign in to your account</h2> {/* Increased font size and darkened color */}
+        <p className="mt-4 text-center text-lg text-gray-700"> {/* Adjusted margin and font size */}
+          Don't have an account? 
           <Link
             to="/signup"
-            className="font-medium text-primary transition-all duration-200 hover:underline"
+            className="font-medium text-purple-600 hover:text-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-colors duration-200" // Improved focus and hover
           >Sign Up
           </Link>
         </p>
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
         <form onSubmit={handleSubmit(login)} className='mt-8'>
-          <div className='space-y-4'>
-            <Input label="Email: " placeholder="Enter your email" type="email" {...register("email", {
-              required: true, validate: {
-                matchPatern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                  "Email address must be a valid address",
+          <div className='space-y-6'> {/* Increased space between input fields */}
+            <Input label="Email:" placeholder="Enter your email" type="email" {...register("email", {
+              required: "Email is required",
+              validate: {
+                matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) || "Please enter a valid email address",
               }
             })} />
-            <Input label="Password: " placeholder="Enter your password" type="password" {...register("password", {
-              required: true
+            <Input label="Password:" placeholder="Enter your password" type="password" {...register("password", {
+              required: "Password is required"
             })} />
-            <div className='flex justify-center pt-5 w-full'>
-              <Button className=" w-full text-white  py-2 text-xl bg-purple-500 hover:bg-purple-400 " type="submit">Sign In</Button>
+            <div className='flex justify-center w-full'>
+              <Button className="w-full py-2 mt-3 px-6  text-xl font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl shadow-md transition-colors duration-300" type="submit">Sign In</Button> {/* Significant button enhancement */}
             </div>
           </div>
         </form>
@@ -64,4 +64,3 @@ export function Login() {
     </div >
   )
 }
-
