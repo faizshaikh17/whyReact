@@ -80,7 +80,7 @@ export default function Post() {
                 </header>
 
                 {/* Post Content */}
-                <div className="prose prose-invert max-w-none text-[#FCFCFF]">{parse(post.content)}</div>
+                <div className="prose prose-invert text-2xl max-w-none text-[#FCFCFF]">{parse(post.content)}</div>
             </article>
         </Container>
     );
