@@ -28,7 +28,7 @@ export function Login() {
   }
   return (
     <div className='flex items-center justify-center w-full'>
-      <div className={`mx-auto w-auto  max-w-lg bg-white p-7 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300`}> {/* Increased shadow and rounded corners */}
+      <div className={`mx-auto w-auto  max-w-lg bg-white rounded-2xl p-7 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300`}> {/* Increased shadow and rounded corners */}
         {/* <div className="mb-5 flex justify-center"> Increased margin */}
           {/* <span className="inline-block w-full max-w-[100px]"> */}
             {/* <Logo className='' /> */}

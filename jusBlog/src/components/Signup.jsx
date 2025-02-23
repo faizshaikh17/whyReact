@@ -33,7 +33,7 @@ function Signup() {
     }
 
     return (
-        <div className="flex items-center justify-center bg-gray-100"> {/* Added min-h-screen and background color */}
+        <div className="flex items-center justify-center w-full"> {/* Added min-h-screen and background color */}
             <div className={`w-full max-w-3xl bg-white text-black rounded-2xl p-6 border border-gray-200 shadow-xl`}> {/* Adjusted padding, border, and shadow */}
 
                 <h2 className="mb-3 text-center text-3xl text-purple-600 font-semibold leading-tight">Sign up to create Account</h2> {/* Adjusted margin, font size, color, and weight */}

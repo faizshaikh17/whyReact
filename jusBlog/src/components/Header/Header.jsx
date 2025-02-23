@@ -50,8 +50,8 @@ export const Header = () => {
                       className={({ isActive }) =>
                         `inline-block px-4 py-2 text-sm font-medium transition-all duration-200 ${
                           isActive
-                            ? 'text-[#d283ff] border-b-2 border-[#d283ff]'
-                            : 'text-white hover:text-[#d283ff] hover:border-b-2 hover:border-[#d283ff]'
+                            ? 'text-[#F580BD] border-b-2 border-[#F580BD]'
+                            : 'text-white hover:text-[#F580BD] hover:border-b-2 hover:border-[#F580BD]'
                         }`
                       }
                     >
@@ -62,7 +62,7 @@ export const Header = () => {
               )}
               {authStatus && (
                 <li>
-                  <LogoutBtn className='px-4 py-2 text-sm font-medium text-white bg-[#d283ff] rounded-lg hover:bg-[#b56aff] transition-all duration-200' />
+                  <LogoutBtn className='px-4 py-2 text-sm font-medium text-white bg-[#F580BD] rounded-lg hover:bg-[#F580BD] transition-all duration-200' />
                 </li>
               )}
             </ul>
