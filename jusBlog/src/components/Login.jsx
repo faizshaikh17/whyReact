@@ -39,7 +39,7 @@ export function Login() {
           Don't have an account? 
           <Link
             to="/signup"
-            className="font-medium text-purple-600 hover:text-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-colors duration-200" // Improved focus and hover
+            className="font-medium text-[#09090B] hover:text-[#09090B] focus:outline-none focus:ring-2 focus:ring-[#09090B] transition-colors duration-200" // Improved focus and hover
           >Sign Up
           </Link>
         </p>
@@ -56,7 +56,7 @@ export function Login() {
               required: "Password is required"
             })} />
             <div className='flex justify-center w-full'>
-              <Button className="w-full py-2 mt-3 px-6  text-xl font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl shadow-md transition-colors duration-300" type="submit">Sign In</Button> {/* Significant button enhancement */}
+              <Button className="w-full py-2 mt-3 px-6  text-xl font-semibold text-white bg-[#09090B] hover:bg-[#09090B] focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl shadow-md transition-colors duration-300" type="submit">Sign In</Button> {/* Significant button enhancement */}
             </div>
           </div>
         </form>

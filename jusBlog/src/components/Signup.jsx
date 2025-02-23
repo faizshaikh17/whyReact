@@ -36,9 +36,9 @@ function Signup() {
         <div className="flex items-center justify-center w-full"> {/* Added min-h-screen and background color */}
             <div className={`w-full max-w-3xl bg-white text-black rounded-2xl p-6 border border-gray-200 shadow-xl`}> {/* Adjusted padding, border, and shadow */}
 
-                <h2 className="mb-3 text-center text-3xl text-purple-600 font-semibold leading-tight">Sign up to create Account</h2> {/* Adjusted margin, font size, color, and weight */}
+                <h2 className="mb-3 text-center text-3xl text-[#09090B] font-semibold leading-tight">Sign up to create Account</h2> {/* Adjusted margin, font size, color, and weight */}
                 <p className="mb-5 text-center text-lg text-gray-700">Already have an account? {/* Adjusted margin, font size, and color */}
-                    <Link to={"/login"} className="font-medium text-purple-600 hover:text-purple-800 focus:outline-none focus:ring-2 focus:ring-purple-400 transition-colors duration-200"> {/* Adjusted link styling */}
+                    <Link to={"/login"} className="font-medium text-[#09090B] hover:text-[#09090B] focus:outline-none focus:ring-2 focus:ring-purple-400 transition-colors duration-200"> {/* Adjusted link styling */}
                         Sign In
                     </Link>
                 </p>
@@ -64,7 +64,7 @@ function Signup() {
                         </div>
                     </div>
                     <div className='flex justify-center pt-4 w-full'> {/* Adjusted padding */}
-                        <Button className="w-full py-3 px-6 text-xl font-semibold text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl shadow-md transition-colors duration-300" type="submit">Create Account</Button> {/* Adjusted button styling */}
+                        <Button className="w-full py-3 px-6 text-xl font-semibold text-white bg-[#09090B] hover:bg-[#09090B] focus:outline-none focus:ring-4 focus:ring-purple-300 rounded-xl shadow-md transition-colors duration-300" type="submit">Create Account</Button> {/* Adjusted button styling */}
                     </div>
                 </form>
 
