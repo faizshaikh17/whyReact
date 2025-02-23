@@ -55,7 +55,9 @@ export function Login() {
               required: "Password is required"
             })} />
             <div className='flex pt-4 justify-between w-full'>
-              <Button className="w-full py-2 px-4 text-base font-semibold text-[#09090B] bg-white rounded-lg shadow-md transition-colors duration-300" type="submit">Back to Home</Button>
+              <Link to={'/'}>
+                <Button className="w-full py-2 px-4 text-base font-semibold text-[#09090B] text-opacity-70 bg-white rounded-lg shadow-md transition-colors duration-300" type="submit">Back to Home</Button>
+                </Link>
               <Button className="w-full text-base font-semibold  text-white bg-[#09090B] hover:bg-[#09090B] rounded-lg shadow-md transition-colors duration-300" type="submit">Sign In</Button> {/* Significant button enhancement */}
             </div>
           </div>

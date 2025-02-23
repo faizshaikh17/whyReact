@@ -43,7 +43,7 @@ function Home() {
 
                     </div>
                     <p className=" mt-10 text-sm md:text-lg text-gray-300 font-light tracking-wide animate-fade-in-delay pt-serif-regular-italic">
-                        Unleash, Express, Represent your voice.
+                        Unleash & Express your writeups.
                     </p>
                 </section>
             </main>
